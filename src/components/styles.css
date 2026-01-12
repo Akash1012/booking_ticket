@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.tooltip-container {
+  position: relative; /* Needed to position the tooltip text relative to its container */
+  display: inline-block; /* Allows the container to wrap its content */
+}
+
+.tooltip-text {
+  visibility: hidden; /* Hidden by default */
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text (example for bottom-aligned) */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px; /* Center the tooltip: half the width (120px/2 = 60px) */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when the user hovers over the tooltip container */
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.cinema {
+  max-width: 1000px;
+  margin: auto;
+  padding: 16px;
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 12px;
+}
+
+.screen-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.screen {
+  width: 80%;
+  height: 40px;
+  background: linear-gradient(#ccc, #999);
+  border-radius: 0 0 25px 25px;
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+
+.row-label {
+  width: 20px;
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.seat {
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.seat:hover {
+  transform: scale(1.1);
+}
+
+.seat.booked {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.aisle {
+  width: 20px;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 24px 0;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-box {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+}
+
+.summary {
+  border-top: 1px solid #ddd;
+  padding-top: 16px;
+}
+
+.summary button {
+  margin-top: 10px;
+  padding: 10px 22px;
+  background: #000;
+  color: #fff;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.summary button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+/* 📱 Mobile Responsive */
+@media (max-width: 600px) {
+  .seat {
+    width: 28px;
+    height: 28px;
+  }
+
+  .screen {
+    width: 95%;
+  }
+}
